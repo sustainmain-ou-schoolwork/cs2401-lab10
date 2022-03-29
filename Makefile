@@ -1,6 +1,6 @@
 CXX = g++
 CFLAGS = -g -Wall -std=c++11
-NOMAIN = 
+NOMAIN = shapes.o
 MAINOBJ = lab10main.o
 TESTOBJ = test.o
 OBJS = $(MAINOBJ) $(NOMAIN)
@@ -10,8 +10,11 @@ TESTOBJS = $(TESTOBJ) $(NOMAIN)
 a.out: $(OBJS)
 	$(CXX) $(CFLAGS) $(OBJS) -o $@
 
-$(MAIN1OBJ): lab10main.cc
+$(MAINOBJ): lab10main.cc shapes.h
 	$(CXX) $(CFLAGS) -c lab10main.cc -o $@
+
+shapes.o: shapes.cc shapes.h
+	$(CXX) $(CFLAGS) -c shapes.cc -o $@
 
 
 test: $(TESTOBJS)
