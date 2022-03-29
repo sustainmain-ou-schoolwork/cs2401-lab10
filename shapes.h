@@ -18,7 +18,7 @@ class Shape {
         /**
          * @brief Set the values for the Shape based on input from cin.
          */
-        void input();
+        virtual void input();
 
 
         /**
